@@ -10,7 +10,7 @@ export default function Works() {
   const [selectedWorkId, setSelectedWorkId] = useState(null);
 
   const filteredWorks = activeTab === 'all' 
-    ? works 
+    ? works.filter(w => w.showInAll === true)
     : works.filter(w => w.category === activeTab);
 
   const selectedWork = works.find(w => w.id === selectedWorkId);

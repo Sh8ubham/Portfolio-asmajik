@@ -26,8 +26,8 @@ function Counter({ from, to, duration = 2 }) {
 export default function AnimatedStats() {
   const stats = [
     { label: 'Projects Completed', value: 50, suffix: '+' },
-    { label: 'Happy Clients', value: 30, suffix: '+' },
-    { label: 'Years Experience', value: 5, suffix: '' },
+    { label: 'Happy Clients', value: 10, suffix: '+' },
+    { label: 'Years Experience', value: 2, suffix: '' },
   ];
 
   return (

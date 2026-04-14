@@ -2,7 +2,7 @@ const colors = ["#c084fc", "#4ade80", "#f59e0b", "#f43f5e", "#3b82f6", "#06b6d4"
 
 const imagesGlob = import.meta.glob('/src/assets/works/**/*.{png,jpg,jpeg,webp}', { eager: true });
 
-export const works = Object.entries(imagesGlob).map(([filePath, module], index) => {
+const mappedWorks = Object.entries(imagesGlob).map(([filePath, module], index) => {
   const parts = filePath.split('/');
   const folderName = parts[parts.length - 2];
   
@@ -26,6 +26,10 @@ export const works = Object.entries(imagesGlob).map(([filePath, module], index) 
     category = 'Professional';
     description = 'Client work and professional projects spanning branding, social media, and commercial design.';
     tags = ['Branding', 'Social Media', 'Figma'];
+  } else if (folderName === 'Startup Project') {
+    category = 'Startup';
+    description = 'Innovative designs and digital solutions built for emerging startups.';
+    tags = ['UI/UX', 'Web Design', 'Startup'];
   } else {
     category = 'Uncategorized';
     description = '';
@@ -43,11 +47,19 @@ export const works = Object.entries(imagesGlob).map(([filePath, module], index) 
     year: "2024",
     client: folderName,
     color: colors[index % colors.length],
+    showInAll: folderName === 'Personal Favs' || folderName === 'Professional Work' || folderName === 'Startup Project',
   };
+});
+
+export const works = mappedWorks.sort((a, b) => {
+  if (a.client === 'Startup Project' && b.client !== 'Startup Project') return -1;
+  if (b.client === 'Startup Project' && a.client !== 'Startup Project') return 1;
+  return a.id - b.id;
 });
 
 export const categories = [
   { id: "all", label: "All" },
+  { id: "Startup", label: "Startup" },
   { id: "Personal", label: "Personal" },
   { id: "Posters", label: "Posters" },
   { id: "Professional", label: "Professional" },

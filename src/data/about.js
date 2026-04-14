@@ -28,7 +28,7 @@ export const about = {
 
   funFacts: [
     { front: "200+", back: "posters designed and counting" },
-    { front: "30+", back: "happy clients worldwide" },
+    { front: "10+", back: "happy clients worldwide" },
     { front: "3:00 am", back: "my most creative hour" },
     { front: "∞", back: "cups of coffee consumed" },
   ],
