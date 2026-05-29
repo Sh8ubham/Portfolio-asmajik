@@ -30,6 +30,10 @@ const mappedWorks = Object.entries(imagesGlob).map(([filePath, module], index) =
     category = 'Startup';
     description = 'Innovative designs and digital solutions built for emerging startups.';
     tags = ['UI/UX', 'Web Design', 'Startup'];
+  } else if (folderName === 'Reference Works') {
+    category = 'Reference';
+    description = 'Reference works and design studies showcasing creative exploration and inspiration.';
+    tags = ['Design', 'Reference', 'Creative'];
   } else {
     category = 'Uncategorized';
     description = '';
@@ -47,7 +51,7 @@ const mappedWorks = Object.entries(imagesGlob).map(([filePath, module], index) =
     year: "2024",
     client: folderName,
     color: colors[index % colors.length],
-    showInAll: folderName === 'Personal Favs' || folderName === 'Professional Work' || folderName === 'Startup Project',
+    showInAll: folderName === 'Personal Favs' || folderName === 'Professional Work' || folderName === 'Startup Project' || folderName === 'Reference Works',
   };
 });
 
@@ -60,6 +64,7 @@ export const works = mappedWorks.sort((a, b) => {
 export const categories = [
   { id: "all", label: "All" },
   { id: "Startup", label: "Startup" },
+  { id: "Reference", label: "Reference" },
   { id: "Personal", label: "Personal" },
   { id: "Posters", label: "Posters" },
   { id: "Professional", label: "Professional" },
